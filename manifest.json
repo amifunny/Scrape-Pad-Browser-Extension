@@ -1,0 +1,35 @@
+{
+
+  "name": "Scrape-Pad",
+  "description" : "Quickly Note down written stuff from websites and prepare a document.",
+  "version": "1.0",
+  "manifest_version": 2,
+  "permissions":[
+    "notifications","storage"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "hello_extensions.png"
+  },
+  "background":{
+    "scripts":["background_script.js"],
+    "persistent":false
+  },
+  "content_scripts":[{
+
+    "matches":["http://*/*","https://*/*"],
+    "js":["content_script.js"]
+
+  }],
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        // Stortcut to call extension
+        "default": "Ctrl+Up",
+        "mac": "Ctrl+Up"
+      },
+      "description": "Opens Popup Pad."
+    }
+  }
+
+}
