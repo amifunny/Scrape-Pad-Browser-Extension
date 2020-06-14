@@ -3,16 +3,33 @@
 	<title>Scrape-Pad</title>
 
 	<link rel="stylesheet" type="text/css" href="popup_style.css">
+	<link rel="stylesheet" type="text/css" href="carpe_diem.css">
 
 </head>
 <body>
 
 	<div>
 		<div>	
-			<h1>Scrape Book</h1>
-			<textarea class="scrape-area" id="scrape_pad" autofocus="True" placeholder="Paste Here ...">
-				
-			</textarea>
+
+			<div class="cd-heading">Scrape Book</div>
+			
+			<div class="cd-h-stack">
+				<button id="clear_btn" class="cd-btn-darken" title="Clear Pad">
+					<span><img src="clear-icon.svg"></span>
+				</button>
+				<!-- <a> -->
+					<button id="download_btn" class="cd-btn-darken" title="Download as document">
+						<span><img src="dwnld-icon.svg"></span>
+					</button>
+				<!-- <a download="info.txt" id="downloadlink">Download</a> -->
+			</div>
+
+			<div>
+				<textarea class="scrape-area" id="scrape_pad" autofocus="True" placeholder="Paste Here ...">
+					
+				</textarea>
+			</div>	
+
 		</div>
 	</div>
 

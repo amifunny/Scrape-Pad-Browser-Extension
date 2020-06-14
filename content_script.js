@@ -8,10 +8,14 @@ function handle_clipboard(data){
 
 	clipnote = scrape_note.anchorNode.data.slice(start,end);
 
+
+	url = "["+chrome.tabs[0].url+"]";
+	console.log(url);
+
 	chrome.storage.local.get("scrapeFull",function(data){
 	
 		chrome.storage.local.set({
-			"scrapeFull":data.scrapeFull+" "+clipnote.trim();
+			"scrapeFull":data.scrapeFull+" "+clipnote.trim()+url
 		});
 	
 	});
