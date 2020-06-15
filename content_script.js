@@ -7,16 +7,22 @@ function handle_clipboard(data){
 	end = scrape_note.extentOffset;
 
 	clipnote = scrape_note.anchorNode.data.slice(start,end);
-
-
-	url = "["+chrome.tabs[0].url+"]";
-	console.log(url);
-
-	chrome.storage.local.get("scrapeFull",function(data){
 	
-		chrome.storage.local.set({
-			"scrapeFull":data.scrapeFull+" "+clipnote.trim()+url
-		});
+	url = toString(window.location.href);
+
+	chrome.storage.local.get(["scrapeFull","references"],function(data){
+	
+		let ref_list = data.references;
+
+		let newData = {};
+		newData.scrapeFull = data.scrapeFull+" "+clipnote.trim();
+
+		if( ref_list.indexOf(url)!=-1 ){
+			ref_list.push( url );
+			newData.references = ref_list;
+		}
+
+		chrome.storage.local.set( newData );
 	
 	});
 	

@@ -2,26 +2,24 @@
 <head>
 	<title>Scrape-Pad</title>
 
-	<link rel="stylesheet" type="text/css" href="popup_style.css">
 	<link rel="stylesheet" type="text/css" href="carpe_diem.css">
+	<link rel="stylesheet" type="text/css" href="popup_style.css">
 
 </head>
 <body>
 
-	<div>
+	<div class="main-container">
 		<div>	
 
-			<div class="cd-heading">Scrape Book</div>
+			<div class="cd-heading main-head">Scrape Pad</div>
 			
 			<div class="cd-h-stack">
-				<button id="clear_btn" class="cd-btn-darken" title="Clear Pad">
+				<button id="clear_btn" class="key-btns cd-btn-darken" title="Clear Pad">
 					<span><img src="clear-icon.svg"></span>
 				</button>
-				<!-- <a> -->
-					<button id="download_btn" class="cd-btn-darken" title="Download as document">
-						<span><img src="dwnld-icon.svg"></span>
-					</button>
-				<!-- <a download="info.txt" id="downloadlink">Download</a> -->
+				<button id="download_btn" class="key-btns cd-btn-darken" title="Download as document">
+					<span><img src="dwnld-icon.svg"></span>
+				</button>
 			</div>
 
 			<div>
@@ -30,6 +28,30 @@
 				</textarea>
 			</div>	
 
+		</div>
+	</div>
+
+	<div class="maker-tag">
+		<span>
+			Made with Fun by 
+			<a class="maker-link" target="_blank" href="https://github.com/amifunny">
+				amifunny
+			</a>
+		</span>	
+	</div>
+
+	<div class="cd-flex-center warning-clear warn-notice-close">
+		<div class="cd-v-stack warning-box">
+			<div>
+
+				<span class="cd-heading warn-box-head">Are You Sure ?</span>
+				<div>This will clear the pad and references. </div>
+				<div class="warning-btns cd-h-stack">
+					<button id="clear_yes" class="warn-box-btn cd-btn-darken">Yes</button>
+					<button id="clear_no" class="warn-box-btn cd-btn-darken">No</button>
+				</div>
+
+			</div>
 		</div>
 	</div>
 

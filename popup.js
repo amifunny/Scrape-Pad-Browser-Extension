@@ -20,18 +20,65 @@ document.addEventListener("DOMContentLoaded",function(){
 
 });
 
+let warn_container = document.getElementsByClassName("warning-clear")[0];
+
+function close_warn(){
+
+	if(warn_container.classList.contains( "warn-notice-open" )){
+		warn_container.classList.remove("warn-notice-open");
+		warn_container.classList.add("warn-notice-close");
+	}
+
+}
+
+document.getElementById("clear_yes").addEventListener("click",function(){
+	
+	close_warn();
+	
+	scrapePad.value = "";
+
+	chrome.storage.local.set({
+		"scrapeFull":"",
+		"references":[]
+	});
+
+});
+
+document.getElementById("clear_no").addEventListener("click",function(){
+	close_warn();
+});
+
+warn_container.addEventListener("click",function(){
+	close_warn();
+});
+
 document.getElementById("clear_btn").addEventListener("click",function(){
 
-	scrapePad.value = "";
+	if(warn_container.classList.contains( "warn-notice-open" )){
+		warn_container.classList.remove("warn-notice-open");
+		warn_container.classList.add("warn-notice-close");
+	}
+	else {
+		warn_container.classList.remove("warn-notice-close");
+		warn_container.classList.add("warn-notice-open");
+	}
 
 });
 
 document.getElementById("download_btn").addEventListener("click",function(){
 
-	chrome.storage.local.get("scrapeFull",function(data){
+	chrome.storage.local.get(["scrapeFull","references"],function(data){
 		
+		let blobData = data.scrapeFull + "\n\n"+
+				       "[ References Links ]\n"
+
+		let ref_list = data.references;
+		for (var i = 0; i <=ref_list.length-1 ; i++) {
+		   	blobData = blobData + " - "+ref_list[i] + "\n";
+	    } 				   
+
 		// Create file from scrapePad data
-		var newBlob = new Blob([data.scrapeFull],{type:"text/plain"});
+		var newBlob = new Blob([ blobData ],{type:"text/plain"});
 		let temp_dwnld_link = document.createElement("a");
 
 		dwnld_url = window.URL.createObjectURL(newBlob);
