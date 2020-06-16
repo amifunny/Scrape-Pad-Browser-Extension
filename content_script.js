@@ -1,13 +1,9 @@
-// chrome.runtime.sendMessage({"clipnote":"IDK what just happen"});
-
 function handle_clipboard(data){
 
 	scrape_note = document.getSelection();
-	start = scrape_note.anchorOffset;
-	end = scrape_note.extentOffset;
-
-	clipnote = scrape_note.anchorNode.data.slice(start,end);
 	
+	clipnote = scrape_note.toString();
+
 	url = toString(window.location.href);
 
 	chrome.storage.local.get(["scrapeFull","references"],function(data){
