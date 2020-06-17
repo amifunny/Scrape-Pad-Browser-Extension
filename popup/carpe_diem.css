@@ -142,12 +142,17 @@ button:focus {
 }
 .cd-scroll-transparent::-webkit-scrollbar {
   width: 0.625rem;
+  cursor: pointer;
+
 }
 .cd-scroll-transparent::-webkit-scrollbar-thumb {
   background: grey;
+  cursor: pointer;
 }
 .cd-scroll-transparent::-webkit-scrollbar-track {
   background: #ffffff00;
+  cursor: pointer;
+  
 }
 .cd-scroll-round::-webkit-scrollbar {
   width: 0.625rem;
