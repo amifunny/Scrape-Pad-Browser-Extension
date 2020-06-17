@@ -21,6 +21,16 @@ body{
 	width: 100%;
 	height: 300px;
 	resize: none;
+	white-space: pre-line;
+}
+
+.key-btns-grp{
+	float: left;
+}
+
+.char-limit-warn{
+	float: right;
+	color:#dd4eb8;
 }
 
 .key-btns{
@@ -58,6 +68,7 @@ body{
 	border-radius: 15px;
 	text-align: center;
     padding: 15px 0;
+    cursor: default;
 }
 
 .warning-btns{

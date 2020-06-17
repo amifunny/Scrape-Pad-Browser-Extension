@@ -6,6 +6,7 @@ chrome.runtime.onInstalled.addListener(function(){
 		"references":[],
 	});
 
+	// Send welcome notification
 	chrome.notifications.create({
 
 		"type":"basic",
